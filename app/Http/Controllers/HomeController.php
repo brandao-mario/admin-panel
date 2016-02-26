@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        Auth::loginUsingId(2);
+        Auth::loginUsingId(1);
         // Auth::logout();
 
         return view('home');

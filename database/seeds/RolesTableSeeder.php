@@ -18,7 +18,7 @@ class RolesTableSeeder extends Seeder
     	foreach (Permission::all() as $permission) {
     		$role->permissions()->save($permission);
     	}
-
+        
         Role::create(['name' => 'User']);
     }
 }

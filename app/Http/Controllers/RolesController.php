@@ -108,9 +108,14 @@ class RolesController extends Controller
     public function destroy($id)
     {
         $role = Role::findOrFail($id);
-        $role->delete();
 
-        \Session::flash('message-success', 'Role deletada');
+        if (count($role->users)) {
+            \Session::flash('message-error', 'Você não pode deletar uma role que tem usuários.');
+        } else {
+            $role->delete();
+            \Session::flash('message-success', 'Role deletada');
+        }
+
         return redirect()->route('roles::list');
     }
 }
