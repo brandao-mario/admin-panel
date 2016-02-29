@@ -24,5 +24,12 @@ Route::group(['middleware' => 'web', 'prefix' => 'admin'], function () {
     Route::get('/roles/{id}/delete', ['as' => 'roles::delete', 'uses' => 'RolesController@destroy']);
 
     // Users
-    Route::get('/users', ['as' => 'users::list', 'uses' => 'UsersController@index']);    
+    Route::get('/users', ['as' => 'users::list', 'uses' => 'Admin\UsersController@index']);
+    Route::get('/users/create', ['as' => 'users::create', 'uses' => 'Admin\UsersController@create']);
+    Route::get('/users/{id}/edit', ['as' => 'users::edit', 'uses' => 'Admin\UsersController@edit']);
+    Route::get('/users/{id}/delete', ['as' => 'users::delete', 'uses' => 'Admin\UsersController@destroy']);
+    Route::post('/users', ['as' => 'users::store', 'uses' => 'Admin\UsersController@store']);
+    Route::put('/users/{id}', ['as' => 'users::update', 'uses' => 'Admin\UsersController@update']);
+
+
 });

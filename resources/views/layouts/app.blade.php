@@ -50,7 +50,7 @@
                     <li><a href="{{ url('/home') }}">Home</a></li>
 
                     @can('users-list')
-                        <li><a href="{{ url('/users') }}">Users</a></li>
+                        <li><a href="{{ route('users::list') }}">Users</a></li>
                     @endcan
 
                     @can('roles-list')
@@ -71,7 +71,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/perfil') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                                <li><a href="{{ route('users::edit', Auth::user()->id) }}"><i class="fa fa-btn fa-sign-out"></i>Profile</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
