@@ -22,6 +22,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>E-mail</th>
+                                <th>Role</th>
                                 <th width="20%">Actions</th>
                             </tr>
                         </thead>
@@ -31,6 +32,7 @@
                             <tr>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td>{{ $user->role->name }}</td>
                                 <td>
                                     @can('users-edit')
                                     <a href="{{ route('users::edit', $user->id) }}" class="btn btn-default btn-sm">

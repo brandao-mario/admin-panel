@@ -8,7 +8,7 @@
                 <div class="panel-heading">Role</div>
 
                 <div class="panel-body">
-                    <form action="{{ route('roles::store') }}" method="post">
+                    <form action="{{ route('roles::store') }}" method="post" class="create-roles"
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
                         
                         <div class="form-group">
