@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Routes FRONT
+ */
 Route::get('/', 'Front\HomeController@index');
 
 
@@ -7,11 +10,13 @@ Route::get('/', 'Front\HomeController@index');
  * Routes ADMIN
  */
 Route::group(['middleware' => 'web', 'prefix' => 'admin'], function () {
+    
+    // Auth
     Route::auth();
 
     // Home
-    Route::get('/', 'HomeController@index');
-    Route::get('/home', 'HomeController@index');
+    Route::get('/', 'Admin\HomeController@index');
+    Route::get('/home', 'Admin\HomeController@index');
 
     // Roles
     Route::get('/roles', ['as' => 'roles::list', 'uses' => 'Admin\RolesController@index']);
@@ -31,6 +36,4 @@ Route::group(['middleware' => 'web', 'prefix' => 'admin'], function () {
     Route::get('/users/{id}/delete', ['as' => 'users::delete', 'uses' => 'Admin\UsersController@destroy']);
     Route::post('/users', ['as' => 'users::store', 'uses' => 'Admin\UsersController@store']);
     Route::put('/users/{id}', ['as' => 'users::update', 'uses' => 'Admin\UsersController@update']);
-
-
 });

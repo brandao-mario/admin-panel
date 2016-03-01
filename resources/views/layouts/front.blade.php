@@ -1,1 +1,5 @@
-layout front
+Layout - Front-end
+
+<hr>
+
+@yield('content')
